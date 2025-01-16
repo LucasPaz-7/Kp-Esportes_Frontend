@@ -674,6 +674,156 @@ form.search button:hover {
 
 
 
+/* SLIDER  */
+
+.slider .item {
+    position: relative;
+    height: 474px;
+}
+
+.slider .item::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 450px;
+    height: 300px;
+    background-color: var(--white-color);
+    z-index: 1;
+    filter: blur(50px);
+    opacity: .8;
+}
+
+.slider .text-content {
+    position: relative;
+    height: var(--percent100);
+    justify-content: flex-end;
+    padding: 0 0 10% 10%;
+    z-index: 1;
+}
+
+.text-content h2 {
+    margin: 0; /* Remove qualquer margem ao redor do h2 */
+    line-height: 1.0; /* Controla o espaçamento entre as linhas, ajuste conforme necessário */ 
+}
+
+.text-content h2 span {
+    display: block; /* Garante que cada <span> fique em uma linha separada */
+    margin: 0; /* Remove margens dos spans */
+    padding: 0; /* Remove qualquer espaçamento adicional */
+}
+
+.text-content {
+    gap: 30px; /* Controla a distância entre o título e os outros elementos, como o botão */
+}
+
+
+.slider h4 {
+    font-size: var(--font-small);
+    font-weight: var(--fw7);
+    width: fit-content;
+    padding: 4px 10px;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    border-radius: 4px;
+}
+
+.text-content :where(h2,h3) span:first-child {
+    font-weight: var(--fw3);
+    columns: var(--ligth-text-color);
+}
+
+.text-content :where(h2,h3) span:last-child {
+    color: var(--secondary-dark-color);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+    background-color: var(--secondary-dark-color);
+}
+
+
+
+/* BRANDS */
+.brands .wrapper {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 2em 0;
+}
+
+.brands .item img {
+    opacity: .25;
+    transition: opacity .3s;
+}
+
+.brands .item a:hover img {
+    opacity: 1;
+}
+
+
+
+/* PRODUCTS */
+.sectop {
+    justify-content: space-between;
+    padding-bottom: 0.5em;
+    margin-bottom: 2em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sectop h2 {
+    position: relative;
+    font-size: 1.5em;
+    font-weight: var(--fw7);
+}
+
+.sectop h2 span:not(.circle) {
+    padding: 0 0 0 2em;
+}
+
+.sectop h2 .circle {
+    top: 20px;
+}
+
+.trending .products {
+    flex: 0 0 33.3333%;
+}
+
+
+/* PRODUCTS A */
+.products .offer {
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.products .offer p {
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+}
+
+.products .offer ul {
+    gap: 1em;
+}
+
+.products .offer ul li {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    padding: 0,5em;
+    line-height: initial;
+    color: var(--secondary-dark-color);
+    background-color: var(--ligth-bg-color);
+    border-radius: 5px;
+}
+
+.products .offer ul li:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    right: -0.6em;
+    color: var(--ligth-text-color);
+}
+
+
 
 
 
@@ -892,4 +1042,10 @@ form.search button:hover {
    .dpt-menu .has-child:hover .mega {
     display: flex;
    }
+
+   /* SLIDE */
+   .slider > div > .wrapper {
+    width: calc(100% - (300px + 2em));
+    margin-left: auto;
+}
 }    
