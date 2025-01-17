@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emaill</title>
+</head>
+<body>
+
+    <style>
+        * {
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url(assets/loja.jpeg);
+      background-size: cover;
+    }
+    .container  p {
+        padding: 20px;
+    }
+
+    .container {
+      width: 320px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.616);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      border: 1px solid #fff;
+      color: white;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: white;
+      border: none;
+      color: black;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: rgb(252, 238, 238);
+    }
+
+    </style>
+    
+    <div class="container">
+        <h2>Seu email esta verificado</h2>
+        <p>Clique no botão abaixo Para ser redirecionado ao tela de admin</p>
+        <button id="button">Entrar</button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login e Cadastro</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url(assets/loja.jpeg);
+      background-size: cover;
+    }
+    .container {
+      width: 320px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.753);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      border: 1px solid #fff;
+      color: white;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: transparent;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      color: #f2f5f7;
+    }
+    input::placeholder {
+      color: #fff;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: white;
+      border: none;
+      color: black;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: rgb(252, 238, 238);
+    }
+    .error {
+      color: rgba(255, 0, 0, 0.623);
+      margin-top: 10px;
+      text-align: center;
+    }
+    .switch {
+      color: white;
+      cursor: pointer;
+      text-align: center;
+      margin-top: 10px;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+      <div class="container">
+        <h2 id="formTitle">Login</h2>
+        <p id="errorUsername" class="error"></p>
+        <input type="text" id="username" placeholder="Nome de usuário" required>
+        <p id="errorEmaill" class="error"></p>
+        <input type="email" id="email" placeholder="Email" required>
+        <p id="errorPassword" class="error"></p>
+        <input type="password" id="password" placeholder="Senha" required>
+        <button id="button">Entrar</button>
+
+      </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
