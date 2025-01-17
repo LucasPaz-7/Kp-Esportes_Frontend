@@ -997,39 +997,7 @@ form.search button:hover {
     position: relative;
 }
 
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em; /* Espaçamento entre os itens */
-}
 
-.products .item {
-    display: flex;
-    flex-direction: row; /* Alinha os itens em linha */
-    justify-content: space-between; /* Espaço entre os itens */
-    align-items: center; /* Alinha verticalmente ao centro */
-    padding: 20px; /* Ajustar padding conforme necessário */
-}
-
-.products .offer {
-    text-align: left; /* Alinhar texto à esquerda */
-    margin-bottom: 1em; /* Ajustar margem inferior */
-}
-
-.products .offer p {
-    margin: 0; /* Remover margens para evitar espaçamento indesejado */
-}
-
-.products.mini .item {
-    width: auto; /* Ajustar para auto se necessário */
-    flex: 1; /* Permitir que os itens ocupem espaço igual */
-}
-
-@media (max-width: 768px) {
-    .products .item {
-        flex-direction: column; /* Mudar para coluna em telas menores */
-    }
-}
 
 
 
