@@ -18,6 +18,8 @@ class Router {
 
     public static function checkRoute() {
         $uri = $_SERVER["REQUEST_URI"];
+
+        $uri = explode("?", $uri)[0];
         
         foreach (self::$endpoints as $pattern => $filename) {
             if (preg_match("#(.*)" . $pattern . "$#", $uri)) {

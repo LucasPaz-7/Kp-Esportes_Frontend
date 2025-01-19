@@ -22,7 +22,7 @@ async function verifyEmail() {
     if (response.status == 200) {
         const token = data.token
         localStorage.setItem("auth_token", token) 
-        window.location.href = "http://127.0.0.1:5500/admin.html"    
+        window.location.href = "http://localhost/PROJETOS/front-end/admin/panel"   
     } 
 
     console.log(data)
