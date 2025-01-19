@@ -160,6 +160,13 @@
     </div>
 
     <script>
+
+        const token = localStorage.getItem("auth_token");
+
+        if (!token) {
+            window.location.href = "/PROJETOS/front-end/admin/login"; 
+        }
+
         function openModal(id) {
             document.getElementById(id).classList.remove('hidden');
         }
