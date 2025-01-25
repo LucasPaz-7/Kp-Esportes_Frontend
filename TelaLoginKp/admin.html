@@ -79,19 +79,14 @@
                         <tr class="bg-gray-200">
                             <th class="border border-gray-300 px-4 py-2">ID</th>
                             <th class="border border-gray-300 px-4 py-2">Nome</th>
+                            <th class="border border-gray-300 px-4 py-2">Adicionado em </th>
+                            <th class="border border-gray-300 px-4 py-2">Atualizado em </th>
                             <th class="border border-gray-300 px-4 py-2">Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="categoryTable">
                         <!-- Dynamic rows here -->
-                        <tr>
-                            <td class="border border-gray-300 px-4 py-2">1</td>
-                            <td class="border border-gray-300 px-4 py-2">Categoria Exemplo</td>
-                            <td class="border border-gray-300 px-4 py-2 text-center">
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600">Editar</button>
-                                <button class="bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-700">Excluir</button>
-                            </td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
@@ -159,33 +154,23 @@
         </div>
     </div>
 
-    <script>
+    <div id="updateCategoryModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+        <div class="bg-white p-6 rounded-lg shadow-md w-11/12 md:w-1/3">
+            <h2 class="text-lg font-bold mb-4">Editar Categoria</h2>
+            <form onsubmit="updateCategory(event)">
+                <div class="mb-4">
+                    <label for="categoryName" class="block text-sm font-bold mb-2">Nome</label>
+                    <input type="text" id="newCategoryName" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="flex justify-end gap-2">
+                    <button type="button" onclick="closeModal('updateCategoryModal')" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Cancelar</button>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-        const token = localStorage.getItem("auth_token");
 
-        if (!token) {
-            window.location.href = "/PROJETOS/front-end/admin/login"; 
-        }
-
-        function openModal(id) {
-            document.getElementById(id).classList.remove('hidden');
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
-        }
-
-        function addCategory(event) {
-            event.preventDefault();
-            const categoryName = document.getElementById('categoryName').value;
-            if (categoryName.trim() === '') {
-                alert('Por favor, insira um nome para a categoria.');
-                return;
-            }
-            // Simulating adding a new category
-            alert(`Categoria "${categoryName}" adicionada com sucesso!`);
-            closeModal('addCategoryModal');
-        }
-    </script>
+    <script src="../TelaLoginKp/admin.js"></script>
 </body>
 </html>
