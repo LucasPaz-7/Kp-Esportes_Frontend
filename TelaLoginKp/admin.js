@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const resp = await response.json()
     const table = document.getElementById("categoryTable");
     const categorySelected = document.getElementById("productCategory");
+    const newCategorySelect = document.getElementById("newproductCategory")
     resp.categories.forEach(category => {
         table.innerHTML += `<tr>
                 <td class="border border-gray-300 px-4 py-2 text-center">${category.category_id}</td>
@@ -58,9 +59,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         categorySelected.innerHTML += `
     <option value="${category.category_id}">
         ${category.name}
-    </option>
+    </option> `
+
+    newCategorySelect.innerHTML += `
+    <option value="${category.category_id}">
+        ${category.name}
+    </option> `
             
-`
+
     });
 
     const responseProduct = await fetch("https://kp-esportes-backend.onrender.com/api/product/recents");
@@ -77,8 +83,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                             <td class="border border-gray-300 px-4 py-2">${product.discount}</td>
                             <td class="border border-gray-300 px-4 py-2">${product.category.name}</td>
                             <td class="border border-gray-300 px-4 py-2 text-center">
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600">Editar</button>
-                                <button class="bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-700">Excluir</button>
+                                <button class="ProductUpdate bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600" data-product_id="${product.product_id}">Editar</button>
+                                <button class="ProductDelete bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-700" data-product_id="${product.product_id}">Excluir</button>
                             </td>
                         </tr>`
 
@@ -104,6 +110,41 @@ document.addEventListener("DOMContentLoaded", async () => {
             openModal("updateCategoryModal")
             const modaledit = document.querySelector("#updateCategoryModal form")
             modaledit.setAttribute("category_id", e.target.dataset.category_id)
+        })
+    }
+
+
+    //button delete and update
+    const ProductDelete = document.getElementsByClassName("ProductDelete")
+    const ProductUpdate = document.getElementsByClassName("ProductUpdate")
+
+
+    for (let i = 0; i < ProductDelete.length; i++) {
+        ProductDelete[i].addEventListener("click", async (e) => {
+            await fetch("https://kp-esportes-backend.onrender.com/api/product/delete/" + e.target.dataset.product_id, {
+                method: "DELETE",
+                headers: {
+                    "Authorization": localStorage.getItem("auth_token")
+                }
+            })
+            window.location.reload()
+        })
+
+        ProductUpdate[i].addEventListener("click", async (e) => {
+            openModal("UpdateProductModal")
+            const modaledit = document.querySelector("#UpdateProductModal form")
+            modaledit.setAttribute("product_id", e.target.dataset.product_id)
+
+            console.log(e.target.dataset.product_id)
+           const response = await fetch("https://kp-esportes-backend.onrender.com/api/product/find/" + e.target.dataset.product_id)
+           const product = await response.json();
+           document.getElementById("newproductName").value = product.name
+           document.getElementById("newproductDescription").value = product.description
+           document.getElementById("newproductPrice").value = product.price
+           document.getElementById("newproductDiscount").value = product.discount
+           document.getElementById("newproductSize").value = product.size.join(",")
+           document.getElementById("newproductCategory").value = product.category.category_id
+       
         })
     }
 
@@ -151,3 +192,30 @@ addproduct.addEventListener("submit", async (e) => {
     const data = await response.json();
     window.location.reload();
 })
+
+
+async function UpdateProduct(event) {
+    event.preventDefault()
+
+    const formDate = new FormData();
+    formDate.append("name", document.getElementById("newproductName").value)
+    formDate.append("description", document.getElementById("newproductDescription").value)
+    formDate.append("price", document.getElementById("newproductPrice").value)
+    formDate.append("discount", document.getElementById("newproductDiscount").value)
+    formDate.append("size", JSON.stringify(document.getElementById("newproductSize").value.split(",")))
+    if(typeof document.getElementById("newproductImage").files[0] != "undefined") {
+        formDate.append("image",document.getElementById("newproductImage").files[0])
+    }
+    formDate.append("category", document.getElementById("newproductCategory").value)
+
+    const response = await fetch("https://kp-esportes-backend.onrender.com/api/product/update/" + event.target.getAttribute("product_id"), {
+        method: "POST",
+        headers: {
+            "Authorization": localStorage.getItem("auth_token"),
+        },
+        body: formDate
+    })
+
+    const data = await response.json();
+    window.location.reload();
+}
