@@ -80,3 +80,23 @@ fetch("https://kp-esportes-backend.onrender.com/api/product/count")
     .then(data => {
         totalProducts.innerText = `Total: ${data.count_products} Produtos`
     })
+
+// PRODUTOS MAIN
+const container = document.getElementById("products-container")
+const listProducts = async () => {
+    const response = await fetch("https://kp-esportes-backend.onrender.com/api/product/recents?limit=30")
+
+    const data = await response.json();
+    
+    container.innerHTML = `
+    <div class="produto-card">
+        <img src="https://kp-esportes-backend.onrender.com/app/Storage/uploads" alt="Chuteira" class="produto-imagem">
+        <h2 class="produto-titulo"></h2>
+        <div class="caracteristicas">
+        </div>
+        <div class="produto-preco"></div>
+        <button class="botao-comprar"></button>
+    </div>
+    `
+}
+listProducts()
