@@ -115,10 +115,9 @@ productsContainer.addEventListener("click", (event) => {
   const card = event.target.closest(".produto-card");
   if (card) {
     const productId = card.dataset.product_id
-    console.log("Clicou no card com productId:", productId);
-    console.log(card)
+    
     if (productId) {
-      showProductDetails(productId);
+      window.location.href = `/show/product?=${productId}`
     }
   }
 });
