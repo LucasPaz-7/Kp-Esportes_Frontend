@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
       message += "Obrigado e aguardo retorno!";
       
       const encodedMessage = encodeURIComponent(message);
-      const whatsappNumber = "8896643514"; // Substitua pelo número real da loja
+      const whatsappNumber = "558896643514"; // Substitua pelo número real da loja
       const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
       window.location.href = whatsappURL;
   });
