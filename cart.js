@@ -87,5 +87,44 @@ function deleteProduct(e) {
  window.location.reload()
 }
 
-// Chamada para carregar o carrinho ao iniciar
+
+function calculateTotal() {
+  return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const addressInput = document.getElementById("address");
+  const addressWarn = document.getElementById("address-warn");
+  const checkoutBtn = document.getElementById("checkout-btn");
+
+  checkoutBtn.addEventListener("click", function() {
+      const address = addressInput.value.trim();
+      if (!address) {
+          addressWarn.classList.remove("hidden");
+          return;
+      }
+      
+      // Construa a mensagem do pedido (exemplo)
+      let message = "Olá, gostaria de fazer o pedido:\n\n";
+  
+      cart.forEach(item => {
+        message += `🛍️ *Produto:* ${item.name}\n`;
+        message += `📦 *Quantidade:* ${item.quantity}\n`;
+        message += `💲 *Subtotal:* R$ ${(item.price * item.quantity).toFixed(2)}\n\n`;
+      });
+      
+      message += `💰 *Total do pedido:* R$ ${calculateTotal().toFixed(2)}\n\n`;
+      message += `🏠 *Endereço de entrega:* ${address}\n\n`;
+      message += "Obrigado e aguardo retorno!";
+      
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappNumber = "8896643514"; // Substitua pelo número real da loja
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+      window.location.href = whatsappURL;
+  });
+});
+
+
+
 loadCart();
