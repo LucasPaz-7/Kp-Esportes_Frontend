@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Carrinho</title>
+  <!-- Vincule o CSS do carrinho -->
+  <link rel="stylesheet" href="cart.css" />
+  <!-- Você pode incluir também seu style.css principal se desejar -->
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav class="nav-bar">
+        <a href="home" class="back-home">← Continuar Comprando</a>
+        <h1>Meu Carrinho</h1>
+      </nav>
+    </header>
+
+    <!-- Conteúdo do Carrinho -->
+    <main>
+      <div id="cart-items" class="cart-items">
+        <!-- Aqui os itens do carrinho serão listados -->
+        <div id="cart-items-list" class="cart-items-list">
+          <!-- Exemplo de item (será inserido dinamicamente) -->
+          <!--
+          
+          -->
+        </div>
+        <p class="cart-total-text">Total: R$ <span id="cart-total">0.00</span></p>
+      </div>
+
+      <!-- Endereço de entrega -->
+      <div class="delivery">
+        <p class="delivery-title">Endereço de Entrega:</p>
+        <input
+          type="text"
+          placeholder="Digite seu endereço completo"
+          id="address"
+          class="address-input"
+        />
+        <p id="address-warn" class="address-warn hidden">Digite seu endereço completo!</p>
+      </div>
+
+      <!-- Ações do Carrinho -->
+      <div class="actions">
+        <button id="checkout-btn" class="checkout-btn">Finalizar Pedido</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Vincule o JavaScript do carrinho -->
+  <script src="cart.js"></script>
+</body>
+</html>

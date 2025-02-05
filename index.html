@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
     <title>Kp-Esports</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -125,14 +126,15 @@
                                         <div class="fly-item"><span class="item-number">0</span></div>
                                     </a>
                                 </li>
-                                <li><a href="#" class="iscart">
+                                <li><a href="/cart" class="iscart" id="cart-btn">
+                                    
                                         <div class="icon-large">
                                             <i class="ri-shopping-cart-line"></i>
-                                            <div class="fly-item"><span class="item-number">0</span></div>
+                                            <div class="fly-item"><span id="cart-count" class="item-number">0</span></div>
                                         </div>
                                         <div class="icon-text flexitem">
                                             <div class="mini-text">Total:</div>
-                                            <div class="cart-total">R$0,00</div>
+                                            <div class="cart-total" id="cart-total">R$0,00</div>
                                         </div>
                                     </a></li>
                             </ul>
@@ -298,6 +300,8 @@
                 <button id="back-to-list" style="margin-bottom: 20px; padding: 10px 20px; border: none; background: var(--secondary-color); color: #fff; border-radius: 4px; cursor: pointer;">Voltar para a listagem</button>
         </main>
         <!-- main -->
+
+
 
         <footer></footer>
         <!-- footer -->

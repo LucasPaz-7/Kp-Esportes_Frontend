@@ -8,3 +8,5 @@ Router::add("/admin/login", "TelaLoginKp/index.html");
 Router::add("/auth/verifyemail", "TelaLoginKp/email.html");
 Router::add("/admin/panel", "TelaLoginKp/admin.html");
 Router::add("/show/product", "product.html");
+Router::add("/cart", "cart.html");
+Router::add("/categories", "categories.html");

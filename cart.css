@@ -1,0 +1,189 @@
+/* cart.css */
+
+/* Variáveis de Cores e Fontes */
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #794afa;
+    --border-color: #e5e8ec;
+    --dark-color: #0a021c;
+    --white-color: #ffffff;
+    --font-poppins: 'Poppins', sans-serif;
+    --font-rubik: 'Rubik', sans-serif;
+  }
+  
+  /* Reset básico */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Corpo da página */
+  body {
+    font-family: var(--font-rubik);
+    background-color: var(--white-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  /* Container Principal */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Cabeçalho do Carrinho */
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .nav-bar h1 {
+    font-family: var(--font-poppins);
+    font-size: 2em;
+    color: var(--dark-color);
+  }
+  
+  .back-home {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1em;
+    transition: color 0.3s;
+  }
+  
+  .back-home:hover {
+    color: var(--secondary-color);
+  }
+  
+  /* Lista de Itens do Carrinho */
+  .cart-items {
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+  }
+  
+  .cart-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+  }
+  
+  .item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .item-name {
+    font-weight: 600;
+    font-family: var(--font-poppins);
+  }
+  
+  .item-quantity,
+  .item-price {
+    font-size: 0.9em;
+    color: var(--dark-color);
+  }
+  
+  /* Botão Remover Item */
+  .remove-item-btn {
+    background-color: #e74c3c;
+    color: var(--white-color);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .remove-item-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Total do Carrinho */
+  .cart-total-text {
+    font-family: var(--font-poppins);
+    font-size: 1.2em;
+    font-weight: 600;
+    text-align: right;
+  }
+  
+  /* Seção de Endereço de Entrega */
+  .delivery {
+    margin-bottom: 20px;
+  }
+  
+  .delivery-title {
+    font-family: var(--font-poppins);
+    font-size: 1.1em;
+    margin-bottom: 8px;
+  }
+  
+  .address-input {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  
+  .address-warn {
+    color: #e74c3c;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Botão de Finalizar Pedido */
+  .actions {
+    text-align: right;
+  }
+  
+  .checkout-btn {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .checkout-btn:hover {
+    background-color: #5e3eae;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .cart-items,
+    .delivery,
+    .actions {
+      padding: 15px;
+    }
+    
+    .nav-bar h1 {
+      font-size: 1.5em;
+    }
+  }
+  

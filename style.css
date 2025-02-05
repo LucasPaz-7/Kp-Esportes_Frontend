@@ -1038,6 +1038,8 @@ form.search button:hover {
   .produto-card {
     background: var(--white-color);
     border-radius: 8px;
+    padding: 5px;
+    line-height: normal;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;

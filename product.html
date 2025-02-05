@@ -4,100 +4,304 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Detalhes do Produto</title>
-  <!-- Inclua seus estilos (ou link para seu style.css) -->
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Estilos básicos para a página de detalhes */
-    body {
-      font-family: 'Rubik', sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: var(--white-color);
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .back-button {
-      margin-bottom: 20px;
-      padding: 10px 20px;
-      border: none;
-      background: var(--secondary-color);
-      color: #fff;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .product-detail {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .image-container {
-      flex: 1 1 400px;
-    }
-    .image-container img {
-      width: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      max-height: 500px;
-    }
-    .product-info {
-      flex: 1 1 400px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .product-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2em;
-      font-weight: 700;
-      color: var(--dark-color);
-      margin: 0;
-    }
-    .product-price {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.5em;
-      color: var(--primary-color);
-    }
-    .product-description {
-      font-family: 'Rubik', sans-serif;
-      font-size: 1em;
-      color: var(--dark-color);
-      line-height: 1.5;
-    }
-    .product-sizes {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .product-size {
-      padding: 10px 15px;
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .buy-button {
-      background-color: var(--primary-color);
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      max-width: 250px;
-    }
-  </style>
 </head>
-<body>
-  <div class="container">
-    <button class="back-button" id="back-to-list">Voltar para a listagem</button>
-    <!-- Container onde os detalhes do produto serão inseridos -->
-    <div id="product-details"></div>
-  </div>
 
-  <!-- Inclua o script que vai buscar os dados do produto -->
-  <script src="product.js"></script>
+<style>
+    /* product.css */
+
+/* Variáveis de Cores e Fontes (ajuste conforme sua identidade visual) */
+:root {
+  --primary-color: #ff6b6b;
+  --secondary-color: #794afa;
+  --border-color: #e5e8ec;
+  --dark-color: #0a021c;
+  --white-color: #ffffff;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-rubik: 'Rubik', sans-serif;
+}
+
+/* Reset básico e box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo geral da página */
+body {
+  font-family: var(--font-rubik);
+  background-color: var(--white-color);
+  color: var(--dark-color);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Container Principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Botão Voltar */
+.back-button {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.back-button:hover {
+  background-color: #5e3eae;
+}
+
+/* Estilo da seção de detalhes do produto */
+.product-detail {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* Container da imagem do produto */
+.image-container {
+  flex: 1 1 400px;
+}
+
+.image-container img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  max-height: 500px;
+}
+
+/* Informações do produto */
+.product-info {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-title {
+  font-family: var(--font-poppins);
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--dark-color);
+}
+
+.product-price {
+  font-family: var(--font-poppins);
+  font-size: 1.5em;
+  color: var(--primary-color);
+}
+
+.product-description {
+  font-family: var(--font-rubik);
+  font-size: 1em;
+  color: var(--dark-color);
+  line-height: 1.5;
+}
+
+/* Área de Tamanhos */
+.product-sizes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.product-size {
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-poppins);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.product-size:hover,
+.product-size.selected {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+/* Botão Comprar */
+.buy-button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  max-width: 250px;
+  transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+  background-color: #e05555;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .product-detail {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .image-container,
+  .product-info {
+    flex: 1 1 100%;
+  }
+  
+  .product-title {
+    font-size: 1.8em;
+  }
+  
+  .product-price {
+    font-size: 1.3em;
+  }
+}
+
+</style>
+<body>
+    <div class="container">
+        <!-- Botão para voltar à listagem e container para os detalhes -->
+        <div id="product-details"></div>
+      </div>
+
+      <script>
+
+// Função para extrair os parâmetros da query string da URL
+function getQueryParams() {
+  const params = {};
+  const queryString = window.location.search.substring(1); // Remove o "?" inicial
+  const pairs = queryString.split("&");
+  for (let pair of pairs) {
+    if (pair) {
+      const [key, value] = pair.split("=");
+      params[decodeURIComponent(key)] = decodeURIComponent(value);
+    }
+  }
+  return params;
+}
+
+// Função para buscar os detalhes do produto utilizando async/await
+async function fetchProductDetails(productId) {
+  const url = `https://kp-esportes-backend.onrender.com/api/product/find/${productId}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Erro ao buscar o produto (status: ${response.status})`);
+    }
+    const data = await response.json();
+    // Ajuste: supondo que a API retorne o objeto do produto diretamente ou em uma propriedade "product"
+    if (data.product) {
+      return data.product;
+    } else if (data) {
+      return data;
+    } else {
+      throw new Error("Produto não encontrado na resposta da API");
+    }
+  } catch (error) {
+    console.error("Erro:", error);
+    alert("Ocorreu um erro ao buscar os detalhes do produto. Verifique o console para mais informações.");
+    return null;
+  }
+}
+
+// Função para renderizar os detalhes do produto na página
+function renderProductDetails(product) {
+  const container = document.getElementById("product-details");
+  container.innerHTML = `
+    <button id="back-to-list" class="back-button" style="margin-bottom: 20px; padding: 10px 20px; border: none; background: var(--secondary-color); color: #fff; border-radius: 4px; cursor: pointer;">
+      Voltar para a listagem
+    </button>
+    <div class="product-detail" style="display: flex; gap: 40px; flex-wrap: wrap;">
+      <div class="image-container" style="flex: 1 1 400px;">
+        <img src="https://kp-esportes-backend.onrender.com/app/Storage/uploads/products/${product.image}" alt="${product.name}" class="product-image" style="width: 100%; object-fit: cover; border-radius: 8px; max-height: 500px;">
+      </div>
+      <div class="product-info" style="flex: 1 1 400px; display: flex; flex-direction: column; gap: 20px;">
+        <h1 class="product-title" style="font-family: 'Poppins', sans-serif; font-size: 2em; font-weight: 700; color: var(--dark-color); margin: 0;">
+          ${product.name}
+        </h1>
+        <div class="product-price" style="font-family: 'Poppins', sans-serif; font-size: 1.5em; color: var(--primary-color);">
+          R$ ${product.price}
+        </div>
+        <div class="product-description" style="font-family: 'Rubik', sans-serif; font-size: 1em; color: var(--dark-color); line-height: 1.5;">
+          ${product.description}
+        </div>
+        <div class="product-sizes" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+          ${
+            product.size && product.size.length
+              ? product.size.map(size => `<div class="product-size" style="padding: 10px 15px; border: 1px solid var(--border-color); border-radius: 4px; cursor: pointer;">${size}</div>`).join("")
+              : `<div class="product-size" style="padding: 10px 15px; border: 1px solid var(--border-color); border-radius: 4px; cursor: pointer;">Tamanho único</div>`
+          }
+        </div>
+        <button class="add-to-cart-btn" style="background-color: var(--primary-color); color: #fff; border: none; padding: 12px; border-radius: 6px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 600; max-width: 250px;">
+          Adicionar ao Carrinho
+        </button>
+      </div>
+    </div>
+  `;
+
+  const addCartBtn = document.querySelector(".add-to-cart-btn");
+if (addCartBtn) {
+  addCartBtn.addEventListener("click", () => {
+   
+    addToCart(product.product_id, product.name, product.price, product.image);
+    alert("Produto adicionado ao carrinho!");
+  });
+
+} else {
+  console.log(error())
+}
+
+  // Adiciona a funcionalidade de seleção de tamanho (caso existam múltiplos tamanhos)
+  const sizeElements = container.querySelectorAll(".product-size");
+  sizeElements.forEach(el => {
+    el.addEventListener("click", () => {
+      sizeElements.forEach(item => item.classList.remove("selected"));
+      el.classList.add("selected");
+    });
+  });
+
+  // Listener para o botão "Voltar para a listagem"
+  document.getElementById("back-to-list").addEventListener("click", () => {
+    window.location.href = "/home";
+  });
+}
+
+// Função principal que inicializa a página de detalhes
+async function init() {
+  const params = getQueryParams();
+  if (!params.id) {
+    alert("Produto não especificado na URL!");
+    return;
+  }
+  const product = await fetchProductDetails(params.id);
+  if (product) {
+    renderProductDetails(product);
+  }
+}
+
+
+init();
+
+  
+
+      </script>
+
+<script src="/cart.js"></script>
 </body>
 </html>
