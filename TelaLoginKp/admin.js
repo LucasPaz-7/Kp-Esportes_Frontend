@@ -1,7 +1,7 @@
 const token = localStorage.getItem("auth_token");
 
 if (!token) {
-    window.location.href = "localhost:8080/admin/login";
+    window.location.href = "https://kp-esportes-frontend.onrender.com/admin/login";
 }
 
 function openModal(id) {

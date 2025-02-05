@@ -22,7 +22,7 @@ async function verifyEmail() {
     if (response.status == 200) {
         const token = data.token
         localStorage.setItem("auth_token", token) 
-        window.location.href = "http://localhost:8080/admin/panel"   
+        window.location.href = "https://kp-esportes-frontend.onrender.com/admin/panel"   
     } 
 
     console.log(data)
