@@ -262,7 +262,26 @@ if (addCartBtn) {
   addCartBtn.addEventListener("click", () => {
    
     addToCart(product.product_id, product.name, product.price, product.image);
-    alert("Produto adicionado ao carrinho!");
+
+    Toastify({
+          text: "Produto adicionado ao carrinho!",
+          duration: 4000,
+          close: true,
+          gravity: "top",      // "top" ou "bottom"
+          position: "right",   // "left", "center" ou "right"
+          stopOnFocus: true,   // Para pausar ao passar o mouse
+          style: {
+            background: "linear-gradient(to right, #794afa,rgb(162, 133, 241))",
+            borderRadius: "8px",
+            fontSize: "16px",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            padding: "16px 24px",
+            color: "#fff"
+          },
+          onClick: function(){} // Callback se necessário
+        }).showToast();
+
+    
   });
 
 } else {
@@ -288,7 +307,25 @@ if (addCartBtn) {
 async function init() {
   const params = getQueryParams();
   if (!params.id) {
-    alert("Produto não especificado na URL!");
+    
+    Toastify({
+          text: "Produto não especificado na URL!",
+          duration: 4000,
+          close: true,
+          gravity: "top",      // "top" ou "bottom"
+          position: "right",   // "left", "center" ou "right"
+          stopOnFocus: true,   // Para pausar ao passar o mouse
+          style: {
+            background: "linear-gradient(to right, #794afa,rgb(162, 133, 241))",
+            borderRadius: "8px",
+            fontSize: "16px",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            padding: "16px 24px",
+            color: "#fff"
+          },
+          onClick: function(){} // Callback se necessário
+        }).showToast();
+
     return;
   }
   const product = await fetchProductDetails(params.id);

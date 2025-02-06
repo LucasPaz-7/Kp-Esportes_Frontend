@@ -53,33 +53,42 @@ button.addEventListener('click', handleForm);
             errorPassword.innerHTML = typeof data.error.password == "undefined" ? "" : data.error.password    
             
             Toastify({
-              text: "Você não prencheu os Campos Coretos",
-              duration: 3000,
-              newWindow: true,
+              text: "Você preencheu algun campo incorreto",
+              duration: 4000,
               close: true,
-              gravity: "top", // `top` or `bottom`
-              position: "left", // `left`, `center` or `right`
-              stopOnFocus: true, // Prevents dismissing of toast on hover
+              gravity: "top",      // "top" ou "bottom"
+              position: "right",   // "left", "center" ou "right"
+              stopOnFocus: true,   // Para pausar ao passar o mouse
               style: {
-                background: "linear-gradient(to right, #794afa, #7c899a)",
+                background: "linear-gradient(to right, #794afa,rgb(162, 133, 241))",
+                borderRadius: "8px",
+                fontSize: "16px",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                padding: "16px 24px",
+                color: "#fff"
               },
-              onClick: function(){} // Callback after click
+              onClick: function(){} // Callback se necessário
             }).showToast();
+            
       } else {
         console.log(data)
 
         Toastify({
-          text: "Seu email foi enviado, olhe a caixa de entrada",
-          duration: 3000,
-          newWindow: true,
+          text: "O Email foi enviado, olhe a sua caixa de entrada",
+          duration: 4000,
           close: true,
-          gravity: "top", // `top` or `bottom`
-          position: "left", // `left`, `center` or `right`
-          stopOnFocus: true, // Prevents dismissing of toast on hover
+          gravity: "top",      // "top" ou "bottom"
+          position: "right",   // "left", "center" ou "right"
+          stopOnFocus: true,   // Para pausar ao passar o mouse
           style: {
-            background: "linear-gradient(to right, #794afa, #7c899a)",
+            background: "linear-gradient(to right, #794afa,rgb(162, 133, 241))",
+            borderRadius: "8px",
+            fontSize: "16px",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            padding: "16px 24px",
+            color: "#fff"
           },
-          onClick: function(){} // Callback after click
+          onClick: function(){} // Callback se necessário
         }).showToast();
       }
     }
