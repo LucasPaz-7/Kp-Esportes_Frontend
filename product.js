@@ -79,6 +79,19 @@ if (addCartBtn) {
     addToCart(product.product_id, product.name, product.price, product.image);
     // Opcional: exibir uma mensagem de confirmação (por exemplo, via Toast)
     alert("Produto adicionado ao carrinho!");
+    Toastify({
+      text: "Produto Adicionado ao carrinho",
+      duration: 3000,
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "left", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right, #794afa, #7c899a)",
+      },
+      onClick: function(){} // Callback after click
+    }).showToast();
   });
 
 } else {
@@ -97,7 +110,7 @@ if (addCartBtn) {
   
     // Listener para o botão "Voltar para a listagem"
     document.getElementById("back-to-list").addEventListener("click", () => {
-      window.location.href = "index.html";
+      window.location.href = "/home";
     });
   }
   

@@ -41,7 +41,7 @@ button.addEventListener('click', handleForm);
         body: JSON.stringify({
             name: username,
             email: email,
-            password: password
+            password: `${password}`
         })
       })
 
@@ -50,9 +50,37 @@ button.addEventListener('click', handleForm);
       if (response.status != 200) {
             errorUsername.innerHTML = typeof data.error.name == "undefined" ? "" : data.error.name
             errorEmail.innerHTML = typeof data.error.email == "undefined" ? "" : data.error.email
-            errorPassword.innerHTML = typeof data.error.password == "undefined" ? "" : data.error.password     
+            errorPassword.innerHTML = typeof data.error.password == "undefined" ? "" : data.error.password    
+            
+            Toastify({
+              text: "Você não prencheu os Campos Coretos",
+              duration: 3000,
+              newWindow: true,
+              close: true,
+              gravity: "top", // `top` or `bottom`
+              position: "left", // `left`, `center` or `right`
+              stopOnFocus: true, // Prevents dismissing of toast on hover
+              style: {
+                background: "linear-gradient(to right, #794afa, #7c899a)",
+              },
+              onClick: function(){} // Callback after click
+            }).showToast();
       } else {
         console.log(data)
+
+        Toastify({
+          text: "Seu email foi enviado, olhe a caixa de entrada",
+          duration: 3000,
+          newWindow: true,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "left", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "linear-gradient(to right, #794afa, #7c899a)",
+          },
+          onClick: function(){} // Callback after click
+        }).showToast();
       }
     }
 

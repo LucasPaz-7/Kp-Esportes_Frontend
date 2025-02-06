@@ -6,6 +6,100 @@
     <title>Categorias</title>
 </head>
 <body>
+    <style>
+
+     #products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+
+  .produto-card {
+    background: var(--white-color);
+    border-radius: 8px;
+    padding: 5px;
+    line-height: normal;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .produto-card:hover {
+    transform: translateY(-5px);
+  }
+  
+
+  .produto-imagem {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  
+
+  .produto-titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    margin: 15px;
+    color: var(--dark-color);
+  }
+  
+  
+  .caracteristicas {
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.9em;
+    margin: 0 15px 10px;
+    color: var(--ligth-text-color);
+    flex: 1;
+  }
+  
+
+  .produto-preco {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+    margin: 0 15px 15px;
+    color: var(--primary-color);
+  }
+  
+
+  .botao-comprar {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    padding: 12px;
+    margin: 0 15px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .botao-comprar:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  @media (max-width: 1024px) {
+    #products-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #products-container {
+      grid-template-columns: 1fr;
+    }
+    .produto-imagem {
+      height: 250px;
+    }
+  }
+    </style>
     
     <div id="products-container">
                 

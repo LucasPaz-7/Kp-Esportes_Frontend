@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
       }
       
-      // Construa a mensagem do pedido (exemplo)
+    
       let message = "Olá, gostaria de fazer o pedido:\n\n";
   
       cart.forEach(item => {
