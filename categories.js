@@ -35,6 +35,21 @@ const showProductsforCategories = async () => {
       `;
       
     })
+
+    const productsContainer = document.getElementById("products-container");
+const detailsContainer = document.getElementById("product-details-container");
+
+
+productsContainer.addEventListener("click", (event) => {
+  const card = event.target.closest(".produto-card");
+  console.log(productsContainer)
+  if (card) {
+    const productId = card.dataset.product_id
+
+    if (productId) {
+      window.location.href = `show/product?id=${productId}`
+    }
+  }
+});
 }
 showProductsforCategories()
-

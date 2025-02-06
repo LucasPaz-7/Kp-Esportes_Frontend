@@ -27,11 +27,12 @@ function loadCart() {
    
   })
 
-let deleteButton = document.getElementById("delete")
+let deleteButton = document.getElementsByClassName("remove-item-btn")
 if(deleteButton) {
   
-  
-  deleteButton.addEventListener("click", deleteProduct)
+  for(let i = 0; i<deleteButton.length; i++) {
+    deleteButton[i].addEventListener("click", deleteProduct);
+  }
 }
   let totalPrice = 0
   cart.forEach(item => {
@@ -80,6 +81,11 @@ function deleteProduct(e) {
  cart.forEach(item => {
   if(item.id != id){
     newCart.push(item)
+  } else {
+    if(item.quantity > 1) {
+      item.quantity -= 1;
+      newCart.push(item)
+    } 
   }
  })
 

@@ -13,6 +13,7 @@ function copyMenu() {
     var topNav = document.querySelector('.header-top .wrapper');
     var topPlace = document.querySelector('.off-canvas .thetop-nav');
     topPlace.innerHTML = topNav.innerHTML;
+
 }
 
 
@@ -62,7 +63,7 @@ async function showCategories() {
     data.categories.forEach(category => {
         categories.innerHTML += `
     <li>
-        <a href="" id="showCategories">
+        <a href="categories?category_name=${category.name}" id="showCategories">
             <div class="icon-large"><i class="ri-t-shirt-air-line"></i></div>
         ${category.name}
         </a>
@@ -72,16 +73,13 @@ async function showCategories() {
     copyMenu()
 
     const categoryContainer = document.getElementById("showCategories");
-const detailsCategories = document.getElementById("product-details-container");
-
-
-categoryContainer.addEventListener("click", (event) => {
-  event.preventDefault()
-  window.location.href = `categories?category_name=${categoryContainer.innerText}`
-
-});
-
-
+    const detailsCategories = document.getElementById("product-details-container");
+    
+    
+    categoryContainer.addEventListener("click", (event) => {
+      event.preventDefault()
+      window.location.href = `categories?category_name=${categoryContainer.innerText}`
+    })
 }
 
 showCategories()
