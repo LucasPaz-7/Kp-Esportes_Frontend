@@ -1027,19 +1027,18 @@ form.search button:hover {
 
 #products-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
   }
   
-
   .produto-card {
     background: var(--white-color);
     border-radius: 8px;
-    padding: 5px;
-    line-height: normal;
+    padding: 15px;
+    line-height: 1.4;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
@@ -1051,56 +1050,53 @@ form.search button:hover {
     transform: translateY(-5px);
   }
   
-
   .produto-imagem {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain; /* garante que a imagem inteira seja exibida */
     display: block;
+    background: #f9f9f9;
   }
   
-
   .produto-titulo {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 1.1em;
-    margin: 15px;
+    font-size: 1.2em;
+    margin: 15px 0 10px;
     color: var(--dark-color);
   }
-  
   
   .caracteristicas {
     font-family: 'Rubik', sans-serif;
     font-size: 0.9em;
-    margin: 0 15px 10px;
+    margin: 0 0 10px;
     color: var(--ligth-text-color);
     flex: 1;
   }
   
-
   .produto-preco {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 1.2em;
-    margin: 0 15px 15px;
+    margin: 0 0 15px;
     color: var(--primary-color);
   }
   
-
   .botao-comprar {
     background-color: var(--primary-color);
     color: var(--white-color);
     border: none;
     padding: 12px;
-    margin: 0 15px 15px;
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.3s ease;
+    align-self: flex-start;
   }
   
   .botao-comprar:hover {
     background-color: var(--secondary-color);
   }
+  
   
   @media (max-width: 1024px) {
     #products-container {
