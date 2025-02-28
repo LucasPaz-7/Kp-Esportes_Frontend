@@ -133,12 +133,6 @@ productsContainer.addEventListener("click", (event) => {
 });
 
 
-
-
-    
-
-
-
 // Seleciona os elementos do carrinho no cabeçalho
 const cartCounter = document.getElementById("cart-count");
 
